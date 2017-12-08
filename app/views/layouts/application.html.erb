@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <title>Tweetapp</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <header class="header">
+    <li><a href="#">Twi◯◯erapp</a></li>
+  </header>
+  <div class="container-fluid">
+    <body>
+      <div class="contents">
+        <%= yield %>
+      </div>
+    </body>
+  </div>  
+  <footer>
+    <p>© 2015-2016 Copyright Twi◯◯erapp Corp.</p>
+  </footer>
+</html>

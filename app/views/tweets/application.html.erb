@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Twit●●r clone</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <header>
+    <ul>
+      <li><a href="#">Twit●●r clone</a></li>
+      <li><a href="#">つぶやいてね！</a></li>
+    </ul>
+  </header>
+
+<%= yield %>
+
+  <footer>
+    <p>Twit●●r clone</p>
+    <p>© 2015-2016 Copyright Twit●●r clone Corp.</p>
+  </footer>
+
+</body>
+</html>
