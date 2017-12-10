@@ -12,5 +12,8 @@
 //
 //= require rails-ujs
 //= require turbolinks
+<<<<<<< HEAD
 //= require jquery/dist/jquery.min
+=======
+>>>>>>> origin/master
 //= require_tree .

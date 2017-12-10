@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # SQLite version 3.x
 #   gem install sqlite3
 #
@@ -23,3 +24,28 @@ test:
 production:
   <<: *default
   database: db/production.sqlite3
+=======
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: sample_development
+
+  template: template0
+
+test:
+  <<: *default
+  database: sample_test
+
+production:
+  <<: *default
+  database: sample_production
+  username: sample
+  password: <%= ENV['SAMPLE_DATABASE_PASSWORD'] %>
+
+  template: template0
+>>>>>>> origin/master
