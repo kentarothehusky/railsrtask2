@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+  </head>
+
+  <header>
+    <title>PHASE3 ログイン課題</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <div class="jumbotron">
+      <h1>The world of kadai!</h1>
+      <p>   </p>
+      <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+    </div>
+
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#gnavi">
+         <!--ここにlogged_inメソッドを入れたい-->
+            <span class="sr-only">Bootstrap</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">menu</a>
+        </div>
+      <div id="gnavi" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><% link_to 'index', blogs_path %></li>
+          <li><a href="">menu1</a></li>
+          <li><a href="">menu2</a></li>
+        </ul>
+      </div>
+    </nav>
+
+  </header>
+
+
+  <div class="container">
+    <body>
+      
+    <% if logged_in? %>
+      <%= link_to_unless_current "Profile", user_path(current_user.id) %>
+      <%= link_to_unless_current "index", blogs_path %>
+      <%= link_to "new", new_blog_path %>
+      <%= link_to_unless_current "favorites", favorites_path(current_user.id) %>
+      <%= link_to_unless_current "Logout", session_path(current_user.id), method: :delete %>
+    <% else %>
+      <%= link_to "Sign up", new_user_path %>
+      <%= link_to "Login", new_session_path %>
+    <% end %>  
+      <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "#{key}") %>
+    <% end %>
+    
+      <ul class="col-xs-12 col-md-12"><%= yield %></ul>
+    </body>
+  </div> 
+  
+  <nav>
+    <!--中央寄せしたいが出来ない-->
+      <div class="pagiWrapper">
+        <ul class="pagination col-xs-offset-6 col-md-offset-6">
+         <li>
+          <a href="#" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li>
+          <a href="#" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+    
+  <footer>
+    <p>PHASE3ログイン課題</p>
+  </footer>
+  
+</html>
